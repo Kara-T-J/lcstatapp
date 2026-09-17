@@ -1,0 +1,741 @@
+/* ============================================================================
+   LCStatApp - Styleguide & CSS Modules
+   Inspired by Fluent Design System
+   ============================================================================ */
+
+/* ============================================================================
+   1. COLOR PALETTE - Define all colors used in the application
+   ============================================================================ */
+
+:root {
+  /* Primary Colors */
+  --color-bg-primary: #f1f5fa;         /* Main background */
+  --color-bg-secondary: #fafcff;       /* Secondary panels */
+  --color-bg-tertiary: #fcfdff;        /* Tertiary cards */
+  --color-bg-hover: #f5f8fc;           /* Hover state background */
+
+  /* Text Colors */
+  --color-text-primary: #142340;       /* Main text (dark blue) */
+  --color-text-secondary: #576a7a;     /* Secondary text (muted) */
+  --color-text-tertiary: #1d2430;      /* Tertiary text (darker) */
+  --color-text-light: #ffffff;         /* Light text on dark backgrounds */
+
+  /* Accent Colors */
+  --color-accent-primary: #0078d4;     /* Primary accent (Microsoft blue) */
+  --color-accent-hover: #106ebe;       /* Accent hover state */
+  --color-accent-active: #005a9e;      /* Accent active state */
+
+  /* Status Colors */
+  --color-success: #107c10;            /* Success/Green */
+  --color-warning: #ffb900;            /* Warning/Yellow */
+  --color-error: #d13438;              /* Error/Red */
+  --color-info: #0078d4;               /* Info/Blue */
+
+  /* Border Colors */
+  --color-border-light: #e0e0e0;       /* Light borders */
+  --color-border-subtle: #f0f0f0;      /* Subtle borders */
+
+  /* Overlay & Transparency */
+  --color-overlay-dark: rgba(0, 0, 0, 0.2);
+  --color-overlay-light: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================================
+   2. TYPOGRAPHY - Font sizes, weights, and line heights
+   ============================================================================ */
+
+:root {
+  /* Font Stack */
+  --font-family-primary: 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-family-monospace: 'Courier New', 'Courier', monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;             /* 12px */
+  --font-size-sm: 0.875rem;            /* 14px */
+  --font-size-base: 1rem;              /* 16px */
+  --font-size-lg: 1.125rem;            /* 18px */
+  --font-size-xl: 1.5rem;              /* 24px */
+  --font-size-2xl: 2rem;               /* 32px */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* ============================================================================
+   3. SPACING - Margins and padding scale
+   ============================================================================ */
+
+:root {
+  --spacing-xs: 0.25rem;               /* 4px */
+  --spacing-sm: 0.5rem;                /* 8px */
+  --spacing-md: 1rem;                  /* 16px */
+  --spacing-lg: 1.5rem;                /* 24px */
+  --spacing-xl: 2rem;                  /* 32px */
+  --spacing-2xl: 3rem;                 /* 48px */
+
+  /* Container Margins & Padding */
+  --margin-default: 20px;
+  --padding-card: 24px;
+  --padding-container: 24px;
+}
+
+/* ============================================================================
+   4. BORDER RADIUS - Rounded corners
+   ============================================================================ */
+
+:root {
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+/* ============================================================================
+   5. SHADOWS - Elevation and depth
+   ============================================================================ */
+
+:root {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================================
+   6. TRANSITIONS & ANIMATIONS
+   ============================================================================ */
+
+:root {
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* ============================================================================
+   7. GLOBAL STYLES
+   ============================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: var(--margin-default);
+}
+
+#react-entry-point {
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   8. HEADER SECTION - Main title and branding
+   ============================================================================ */
+
+h1, .header-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  padding: 0;
+  text-align: left;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.app-header h1 {
+  margin-bottom: 0;
+}
+
+.main-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  padding: var(--spacing-xs);
+  gap: var(--spacing-xs);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-accent-primary);
+  background-color: var(--color-bg-hover);
+}
+
+.nav-link.active {
+  color: var(--color-text-light);
+  background-color: var(--color-accent-primary);
+}
+
+.time-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.header-subtitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================================================
+   9. CARD COMPONENTS - Panels and containers
+   ============================================================================ */
+
+.card {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-card);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-bg-hover);
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border-subtle);
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-md);
+}
+
+.card-content {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 132px;
+  padding: var(--padding-card);
+  text-align: center;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal), background-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.metric-card:hover {
+  background-color: var(--color-bg-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.metric-card-title {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+.metric-card-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  white-space: nowrap;
+}
+
+.metric-card-value {
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-card-unit {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-card-subtitle {
+  margin-top: var(--spacing-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+/* ============================================================================
+   10. DATA TABLE STYLES - AG Grid customization
+   ============================================================================ */
+
+.ag-theme-quartz {
+  --ag-background-color: var(--color-bg-tertiary);
+  --ag-foreground-color: var(--color-text-primary);
+  --ag-border-color: var(--color-border-light);
+  --ag-odd-row-background-color: var(--color-bg-tertiary);
+  --ag-row-hover-color: var(--color-bg-hover);
+  --ag-header-background-color: var(--color-bg-secondary);
+  --ag-header-foreground-color: var(--color-text-tertiary);
+  --ag-row-border-color: var(--color-border-subtle);
+  --ag-font-family: var(--font-family-primary);
+}
+
+.ag-root {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.ag-header-cell-text {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ag-cell {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.ag-row {
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background-color var(--transition-fast);
+}
+
+.ag-row:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.ag-row.ag-row-selected {
+  background-color: #e8f4fd;
+}
+
+/* ============================================================================
+   11. BUTTON STYLES
+   ============================================================================ */
+
+button, .button {
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  outline: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.button:hover, button[type="submit"]:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Primary Button */
+.button-primary, button[type="submit"] {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.button-primary:hover, button[type="submit"]:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.button-primary:active, button[type="submit"]:active {
+  background-color: var(--color-accent-active);
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.button-secondary, button[type="reset"] {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-light);
+}
+
+.button-secondary:hover, button[type="reset"]:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-accent-primary);
+}
+
+/* Disabled Button */
+button:disabled, .button:disabled {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================================================
+   12. INPUT & FORM ELEMENTS
+   ============================================================================ */
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  transition: all var(--transition-normal);
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+  background-color: #ffffff;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--color-accent-primary);
+}
+
+label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   13. LAYOUT CONTAINERS
+   ============================================================================ */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.row {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.col {
+  flex: 1;
+}
+
+.view-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.week-btn-full {
+  width: 100%;
+}
+
+.month-buttons-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+  margin: 10px 0;
+}
+
+/* ============================================================================
+   14. BADGE & STATUS INDICATORS
+   ============================================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.badge-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* ============================================================================
+   15. UTILITY CLASSES
+   ============================================================================ */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-accent { color: var(--color-accent-primary); }
+
+.font-small { font-size: var(--font-size-sm); }
+.font-base { font-size: var(--font-size-base); }
+.font-large { font-size: var(--font-size-lg); }
+
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+
+.rounded { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.shadow { box-shadow: var(--shadow-md); }
+
+.display-none { display: none; }
+.visibility-hidden { visibility: hidden; }
+
+/* ============================================================================
+   16. RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --margin-default: 12px;
+    --padding-card: 16px;
+    --padding-container: 16px;
+  }
+
+  body {
+    padding: var(--margin-default);
+  }
+
+  h1, .header-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .app-header {
+    gap: var(--spacing-md);
+  }
+
+  .time-controls {
+    width: 100%;
+  }
+
+  .card {
+    padding: var(--padding-card);
+  }
+
+  .grid-2, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  button, .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --margin-default: 8px;
+    --padding-card: 12px;
+    --padding-container: 12px;
+    --font-size-xl: 1.25rem;
+  }
+
+  body {
+    padding: var(--margin-default);
+  }
+
+  h1, .header-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .card {
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* ============================================================================
+   17. DARK MODE SUPPORT (Optional)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #0a0e27;
+    --color-bg-secondary: #1a1f3a;
+    --color-bg-tertiary: #252d4a;
+    --color-bg-hover: #2d3548;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #a0a0a0;
+    --color-text-tertiary: #d0d0d0;
+    --color-border-light: #3a3f52;
+    --color-border-subtle: #2a2f42;
+  }
+
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-light);
+  }
+
+  input[type="text"]:focus,
+  input[type="search"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    background-color: var(--color-bg-tertiary);
+  }
+}
+
+/* ============================================================================
+   18. PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  body {
+    background-color: #ffffff;
+  }
+
+  .card {
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+
+  button, .button {
+    display: none;
+  }
+}
